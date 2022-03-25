@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logoWinkels from "../assets/images/logo-winkels.png";
 import imgPerfil from "../assets/images/img_perfil.jpeg";
+import CartWidget from '../components/CartWidget.js';
 
 const pages = ['Home', 'Productos', 'Nosotros', 'Contacto'];
 const settings = ['Perfil', 'Cerrar Sesión'];
@@ -48,7 +49,6 @@ const NavBar = () => {
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} >
-
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -88,10 +88,17 @@ const NavBar = () => {
 
                     <Typography
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'space-evenly' }}
                     >
                         <img style={{ 'width':'150px', 'height':'50px', 'border-radius':'10px' }} src={logoWinkels} alt="Coder House React"/>
+                        <Box></Box>
+                        <Box></Box>
+                        <CartWidget />
+                        <Box></Box>
+                        <Box></Box>
+                        <Box></Box>
                     </Typography>
+
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'space-evenly' }}>
                         {pages.map((page) => (
@@ -103,6 +110,7 @@ const NavBar = () => {
                                 {page}
                             </Button>
                         ))}
+                        <CartWidget />
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>

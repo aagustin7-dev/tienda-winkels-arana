@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar.js';
+import ItemListContainer from './components/ItemListContainer.js';
 
 
 function App() {
@@ -7,9 +8,7 @@ function App() {
     <div className="App">
         <NavBar />
         <div>
-            <h2 className="Title">• Winkels •</h2>
-            <hr></hr>
-            <h4>React JS</h4>
+            <ItemListContainer autor={"Agustin Arana"} curso={"React JS"}/>
         </div>
         <div className="Footer">
         </div>
