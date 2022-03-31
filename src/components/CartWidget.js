@@ -14,11 +14,12 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 
-function CartWidget() {
+const CartWidget = ({ stockCarro }) => {
+
     return (
 
         <IconButton aria-label="cart">
-            <StyledBadge badgeContent={0} showZero color="primary" >
+            <StyledBadge badgeContent={stockCarro} showZero color="primary" >
                 <ShoppingCartIcon sx={{ p: 0, color: "white", fontSize: 30 }}/>
             </StyledBadge>
         </IconButton>

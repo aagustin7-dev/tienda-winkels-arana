@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,137 +15,150 @@ import logoWinkels from "../assets/images/logo-winkels.png";
 import imgPerfil from "../assets/images/img_perfil.jpeg";
 import CartWidget from '../components/CartWidget.js';
 
-const pages = ['Home', 'Productos', 'Nosotros', 'Contacto'];
-const settings = ['Perfil', 'Cerrar Sesión'];
 
-const NavBar = () => {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const pages = ['Home', 'Productos', 'Nosotros', 'Contacto'];
+    const settings = ['Perfil', 'Cerrar Sesión'];
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
+    const NavBar = ({ stockCarro }) => {
 
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
+        const [anchorElNav, setAnchorElNav] = useState(null);
+        const [anchorElUser, setAnchorElUser] = useState(null);
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
+        const handleOpenNavMenu = (event) => {
+            setAnchorElNav(event.currentTarget);
+        };
+        const handleOpenUserMenu = (event) => {
+            setAnchorElUser(event.currentTarget);
+        };
 
-    return (
-        <AppBar position="static" style={{ background: '#2E3B55' }}>
-            <Container maxWidth="xl" fixed>
-                <Toolbar disableGutters>
-                    <Typography
-                        component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                    >
-                        <img style={{ 'width':'180px', 'height':'70px', 'border-radius':'10px' }} src={logoWinkels} alt="Coder House React"/>
-                    </Typography>
+        const handleCloseNavMenu = () => {
+            setAnchorElNav(null);
+        };
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} >
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
+        const handleCloseUserMenu = () => {
+            setAnchorElUser(null);
+        };
+
+
+        return (
+            <AppBar position="static" style={{background: '#2E3B55'}}>
+                <Container maxWidth="xl" fixed>
+                    <Toolbar disableGutters>
+                        <Typography
+                            component="div"
+                            sx={{mr: 2, display: {xs: 'none', md: 'flex'}}}
                         >
-                            <MenuIcon />
-                        </IconButton>
+                            <img style={{'width': '180px', 'height': '70px', 'border-radius': '10px'}} src={logoWinkels}
+                                 alt="Coder House React"/>
+                        </Typography>
 
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography>{page}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-
-                    <Typography
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'space-evenly' }}
-                    >
-                        <img style={{ 'width':'150px', 'height':'50px', 'border-radius':'10px' }} src={logoWinkels} alt="Coder House React"/>
-                        <Box></Box>
-                        <Box></Box>
-                        <CartWidget />
-                        <Box></Box>
-                        <Box></Box>
-                        <Box></Box>
-                    </Typography>
-
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'space-evenly' }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 4, color: 'white', display: 'block', textTransform: 'uppercase', fontWeight: 'bold', fontFamily: 'default', letterSpacing: 2 }}
+                        <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
+                            <IconButton
+                                size="large"
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleOpenNavMenu}
+                                color="inherit"
                             >
-                                {page}
-                            </Button>
-                        ))}
-                        <CartWidget />
-                    </Box>
-
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Conf" src={imgPerfil} style={{ 'width':'50px', 'height':'50px' }}/>
+                                <MenuIcon/>
                             </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-                </Toolbar>
-            </Container>
-        </AppBar>
-    );
-};
 
-export default NavBar;
+                            <Menu
+                                id="menu-appbar"
+                                anchorEl={anchorElNav}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                open={Boolean(anchorElNav)}
+                                onClose={handleCloseNavMenu}
+                                sx={{
+                                    display: {xs: 'block', md: 'none'},
+                                }}
+                            >
+                                {pages.map((page) => (
+                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                        <Typography>{page}</Typography>
+                                    </MenuItem>
+                                ))}
+                            </Menu>
+                        </Box>
+
+                        <Typography
+                            component="div"
+                            sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}, justifyContent: 'space-evenly'}}
+                        >
+                            <img style={{'width': '150px', 'height': '50px', 'border-radius': '10px'}} src={logoWinkels}
+                                 alt="Coder House React"/>
+                            <Box></Box>
+                            <Box></Box>
+                            <CartWidget stockCarro={stockCarro} />
+                            <Box></Box>
+                            <Box></Box>
+                            <Box></Box>
+                        </Typography>
+
+
+                        <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'space-evenly'}}>
+                            {pages.map((page) => (
+                                <Button
+                                    key={page}
+                                    onClick={handleCloseNavMenu}
+                                    sx={{
+                                        my: 4,
+                                        color: 'white',
+                                        display: 'block',
+                                        textTransform: 'uppercase',
+                                        fontWeight: 'bold',
+                                        fontFamily: 'default',
+                                        letterSpacing: 2
+                                    }}
+                                >
+                                    {page}
+                                </Button>
+                            ))}
+                            <CartWidget stockCarro={stockCarro} />
+                        </Box>
+
+                        <Box sx={{flexGrow: 0}}>
+                            <Tooltip title="Settings">
+                                <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
+                                    <Avatar alt="Conf" src={imgPerfil} style={{'width': '50px', 'height': '50px'}}/>
+                                </IconButton>
+                            </Tooltip>
+                            <Menu
+                                sx={{mt: '45px'}}
+                                id="menu-appbar"
+                                anchorEl={anchorElUser}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                open={Boolean(anchorElUser)}
+                                onClose={handleCloseUserMenu}
+                            >
+                                {settings.map((setting) => (
+                                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                        <Typography textAlign="center">{setting}</Typography>
+                                    </MenuItem>
+                                ))}
+                            </Menu>
+                        </Box>
+                    </Toolbar>
+                </Container>
+            </AppBar>
+        );
+    };
+
+    export default NavBar;
