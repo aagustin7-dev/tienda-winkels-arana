@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ItemCount from './ItemCount.js';
+import ItemList from "./ItemList";
 
-const ItemListContainer = ({ autor, curso, onAdd }) => {
-
-    let nombreTienda = "Winkels";
+const ItemListContainer = ({ tienda, onAdd }) => {
 
     let [cant, setCant] = useState(1);
 
@@ -21,16 +20,38 @@ const ItemListContainer = ({ autor, curso, onAdd }) => {
         }
     }
 
+    const [productos, setProductos] = useState([]);
+
+    useEffect(() => {
+
+        const array = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve([
+                    { id: 1, title: "Zapato Mujer Invierno", description: "Calzado de primera linea", price: "$3500", pictureUrl: "https://static.dafiti.com.ar/p/lady-stork-1804-208909-2-zoom.jpg" }
+                ])
+            }, 2000)
+
+        })
+
+        array
+            .then((respuesta) => {
+                setProductos(respuesta);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+
+    }, [])
+
 
     return (
 
         <div>
             <br />
-            <h2>Tienda {nombreTienda}</h2>
+            <h2>{tienda}</h2>
             <hr></hr>
-            <h3>{curso}</h3>
-            <br />
-            <h3>{autor}</h3>
+            <ItemList productos={productos} />
             <br />
             <hr></hr>
             <br />

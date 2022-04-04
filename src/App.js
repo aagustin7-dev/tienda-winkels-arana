@@ -15,10 +15,9 @@ function App() {
     <div className="App">
         <NavBar stockCarro={stockCarro}/>
         <div>
-            <ItemListContainer autor={"Agustin Arana"} curso={"React JS"} onAdd={onAdd}/>
+            <ItemListContainer tienda={"Winkels"} onAdd={onAdd}/>
         </div>
-        <div className="Footer">
-        </div>
+        <br />
     </div>
   );
 }

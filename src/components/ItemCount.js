@@ -7,10 +7,10 @@ const ItemCount = ({ onAdd, sumar, restar, cant }) => {
     return(
 
         <div>
-            <Box display="flex" justifyContent="space-evenly">
-                <Button onClick={restar} size="small" variant="outlined">-</Button>
+            <Box sx={{ display:"flex", flexWrap:"wrap", justifyContent:"space-evenly", mx: "auto", width: 300 }}>
+                <Button onClick={restar} size="small" color="primary" variant="contained"><b>-</b></Button>
                 {cant}
-                <Button onClick={sumar} size="small" variant="outlined">+</Button>
+                <Button onClick={sumar} size="small" color="primary" variant="contained"><b>+</b></Button>
             </Box>
             <br />
             <br />
