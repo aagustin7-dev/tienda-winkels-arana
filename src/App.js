@@ -1,6 +1,7 @@
 import './App.css';
 import NavBar from './components/NavBar.js';
 import ItemListContainer from './components/ItemListContainer.js';
+import ItemDetailContainer from './components/ItemDetailContainer.js';
 import {useState} from "react";
 
 function App() {
@@ -15,9 +16,9 @@ function App() {
     <div className="App">
         <NavBar stockCarro={stockCarro}/>
         <div>
-            <ItemListContainer tienda={"Winkels"} onAdd={onAdd}/>
+            {/* <ItemListContainer tienda={"Winkels"} onAdd={onAdd}/> */}
+            <ItemDetailContainer tienda={"Winkels"} onAdd={onAdd}/>
         </div>
-        <br />
     </div>
   );
 }

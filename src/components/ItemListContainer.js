@@ -9,7 +9,7 @@ const ItemListContainer = ({ tienda, onAdd }) => {
     const stock = 5;
 
     const restar = () => {
-        if ( cant > 0 ){
+        if ( cant > 1 ){
             setCant(--cant);
         }
     }
@@ -55,7 +55,7 @@ const ItemListContainer = ({ tienda, onAdd }) => {
             <br />
             <hr></hr>
             <br />
-            <ItemCount onAdd={onAdd} sumar={sumar} restar={restar} cant={cant} />
+            <ItemCount onAdd={onAdd} sumar={sumar} restar={restar} cant={cant}  />
 
         </div>
     );
