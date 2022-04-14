@@ -14,9 +14,17 @@ import MenuItem from '@mui/material/MenuItem';
 import logoWinkels from "../assets/images/logo-winkels.png";
 import imgPerfil from "../assets/images/img_perfil.jpeg";
 import CartWidget from '../components/CartWidget.js';
+import {Link} from "react-router-dom";
+import Categorias from "./Categorias";
+import Item from "./Item";
 
 
-    const pages = ['Home', 'Productos', 'Nosotros', 'Contacto'];
+     const pages = [
+        { titulo:'Home', url:'/home' },
+        { titulo:'Categorias', url:'' },
+        { titulo:'Contacto', url:'' }
+    ];
+
     const settings = ['Perfil', 'Cerrar Sesión'];
 
     const NavBar = ({ stockCarro }) => {
@@ -39,6 +47,16 @@ import CartWidget from '../components/CartWidget.js';
             setAnchorElUser(null);
         };
 
+        const handleRedirect = (url) => {
+            console.log(url);
+        }
+
+        const categorias = [
+            { id: 1, nombre: 'informatica' },
+            { id: 2, nombre: 'telefonia' },
+            { id: 3, nombre: 'deportes' }
+        ];
+
 
         return (
             <AppBar position="static" style={{background: '#2E3B55'}}>
@@ -48,8 +66,10 @@ import CartWidget from '../components/CartWidget.js';
                             component="div"
                             sx={{mr: 2, display: {xs: 'none', md: 'flex'}}}
                         >
-                            <img style={{'width': '180px', 'height': '70px', 'border-radius': '10px'}} src={logoWinkels}
+                            <Link to="/home">
+                                <img style={{'width': '180px', 'height': '70px', 'border-radius': '10px'}} src={logoWinkels}
                                  alt="Coder House React"/>
+                            </Link>
                         </Typography>
 
                         <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
@@ -82,11 +102,11 @@ import CartWidget from '../components/CartWidget.js';
                                     display: {xs: 'block', md: 'none'},
                                 }}
                             >
-                                {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography>{page}</Typography>
-                                    </MenuItem>
-                                ))}
+                                {categorias.map((page) =>
+                                    <>
+                                        <Categorias key={page.id} id={page.id} nombre={page.nombre} />
+                                    </>
+                                )}
                             </Menu>
                         </Box>
 
@@ -94,8 +114,10 @@ import CartWidget from '../components/CartWidget.js';
                             component="div"
                             sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}, justifyContent: 'space-evenly'}}
                         >
-                            <img style={{'width': '150px', 'height': '50px', 'border-radius': '10px'}} src={logoWinkels}
-                                 alt="Coder House React"/>
+                            <Link to="/home">
+                                <img style={{'width': '150px', 'height': '50px', 'border-radius': '10px'}} src={logoWinkels}
+                                     alt="Coder House React"/>
+                            </Link>
                             <Box></Box>
                             <Box></Box>
                             <CartWidget stockCarro={stockCarro} />
@@ -105,33 +127,27 @@ import CartWidget from '../components/CartWidget.js';
                         </Typography>
 
 
-                        <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'space-evenly'}}>
-                            {pages.map((page) => (
-                                <Button
-                                    key={page}
-                                    onClick={handleCloseNavMenu}
-                                    sx={{
-                                        my: 4,
-                                        color: 'white',
-                                        display: 'block',
-                                        textTransform: 'uppercase',
-                                        fontWeight: 'bold',
-                                        fontFamily: 'default',
-                                        letterSpacing: 2
-                                    }}
-                                >
-                                    {page}
-                                </Button>
+                        <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'space-evenly', alignItems: 'center', my: 3,
+                            color: 'white',
+                            textTransform: 'uppercase',
+                            fontWeight: 'bold',
+                            fontFamily: 'default',
+                            fontSize: 'medium',
+                            letterSpacing: 1 }}>
+                             {categorias.map((page) => (
+                                 <>
+                                     <Categorias key={page.id} id={page.id} nombre={page.nombre} />
+                                 </>
                             ))}
                             <CartWidget stockCarro={stockCarro} />
                         </Box>
 
                         <Box sx={{flexGrow: 0}}>
-                            <Tooltip title="Settings">
+                            {/*<Tooltip title="Settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
                                     <Avatar alt="Conf" src={imgPerfil} style={{'width': '50px', 'height': '50px'}}/>
                                 </IconButton>
-                            </Tooltip>
+                            </Tooltip> */}
                             <Menu
                                 sx={{mt: '45px'}}
                                 id="menu-appbar"

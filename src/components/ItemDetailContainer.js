@@ -3,7 +3,7 @@ import ItemCount from './ItemCount.js';
 import ItemDetail from "./ItemDetail.js";
 import Item from "./Item";
 
-const ItemDetailContainer = ({ tienda, onAdd }) => {
+const ItemDetailContainer = ({ onAdd }) => {
 
     let [cant, setCant] = useState(1);
 
@@ -21,48 +21,24 @@ const ItemDetailContainer = ({ tienda, onAdd }) => {
         }
     }
 
-    const [productodetalle, setProductosDetalle] = useState([]);
-
-    useEffect(() => {
-
-        const array = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve([
-                    { id: 1, title: "Notebook Dell Latitude 5400 i7 500SSD 32GB RAM", description: "Para uso laboral y gamer", price: "$200.000", pictureUrl: "https://m.media-amazon.com/images/I/6173RUlctCL._AC_SL1500_.jpg", stockDisponible: "26" }
-                ])
-            }, 2000)
-
-        })
-
-        array
-            .then((respuesta) => {
-                setProductosDetalle(respuesta);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-
-
-    }, [])
-
     const mostrarMensaje = () => {
         alert("Compra realizada");
     }
 
+    const producto_detalle = {
+        id: 1,
+        title: "Product Name",
+        description: "Product Description",
+        price: "Product Price",
+        pictureUrl: "https://static1.squarespace.com/static/5c3f14108ab722debd73a9f5/t/5de2fc4936172f0b2fbc3806/1575156810265/products_brochure_design-min.png",
+        categoria_id: 1}
+
     return (
 
-        <div>
-            <br />
-            <h2>{tienda}</h2>
-            <hr></hr>
-            {productodetalle.map(item =>
-                <ItemDetail id={item.id} title={item.title} description={item.description} price={item.price} pictureUrl={item.pictureUrl} stockDisponible={item.stockDisponible} />
-            )}
-            <br />
+        <>
+            <ItemDetail title={producto_detalle.title} description={producto_detalle.description} price={producto_detalle.price} pictureUrl={producto_detalle.pictureUrl } categoria_id={producto_detalle.categoria_id} />
             <ItemCount onAdd={onAdd} sumar={sumar} restar={restar} cant={cant} mostrarMensaje={mostrarMensaje} />
-            <br />
-
-        </div>
+        </>
     );
 }
 export default ItemDetailContainer;
