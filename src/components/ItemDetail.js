@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from "@mui/material/Button";
 import {Grid} from "@mui/material";
 import { useParams, Link } from 'react-router-dom';
 
-const ItemDetail = ({ title, description, price, pictureUrl, categoria_id }) => {
+const ItemDetail = ({ title, description, price, pictureUrl, categoria_id, cant }) => {
+
+    let [cantidad, setCantidad] = useState(cant);
 
     const urlParams = useParams();
     let url_volver;
@@ -34,8 +36,12 @@ const ItemDetail = ({ title, description, price, pictureUrl, categoria_id }) => 
                     <Link to={url_volver} style={{ textDecoration: 'none', color: 'white' }}>
                         <Button variant="outlined" size="small">Volver</Button>
                     </Link>
+                    <p>
+                    <Link to={"/cart"} style={{ textDecoration: 'none', color: 'white' }}>
+                        <Button color="success" variant="contained">Finalizar Compra</Button>
+                    </Link>
+                    </p>
                 </div>
-                <br/>
             </Grid>
         </>
 

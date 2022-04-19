@@ -4,7 +4,7 @@ import ItemListContainer from './components/ItemListContainer.js';
 import ItemDetailContainer from './components/ItemDetailContainer.js';
 import {useState} from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ItemList from "./components/ItemList";
+import Cart from "./components/Cart";
 
 function App() {
 
@@ -22,6 +22,7 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<ItemListContainer tienda={"Winkels"} onAdd={onAdd} />} />
                     <Route exact path="/home" element={<ItemListContainer tienda={"Winkels"} onAdd={onAdd} />} />
+                    <Route exact path="/cart" element={<Cart tienda={"Winkels"} onAdd={onAdd} />} />
                     <Route exact path="/:categoryName/:categoryId" element={<ItemListContainer tienda={"Winkels"} onAdd={onAdd}/>} />
                     <Route exact path="/:categoryName/:categoryId/:productName/:productId" element={<ItemDetailContainer tienda={"Winkels"} onAdd={onAdd}/>} />
                 </Routes>

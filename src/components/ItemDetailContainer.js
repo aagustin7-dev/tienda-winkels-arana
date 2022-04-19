@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import ItemCount from './ItemCount.js';
 import ItemDetail from "./ItemDetail.js";
-import Item from "./Item";
 
 const ItemDetailContainer = ({ onAdd }) => {
 
@@ -21,10 +20,6 @@ const ItemDetailContainer = ({ onAdd }) => {
         }
     }
 
-    const mostrarMensaje = () => {
-        alert("Compra realizada");
-    }
-
     const producto_detalle = {
         id: 1,
         title: "Product Name",
@@ -36,8 +31,9 @@ const ItemDetailContainer = ({ onAdd }) => {
     return (
 
         <>
-            <ItemDetail title={producto_detalle.title} description={producto_detalle.description} price={producto_detalle.price} pictureUrl={producto_detalle.pictureUrl } categoria_id={producto_detalle.categoria_id} />
-            <ItemCount onAdd={onAdd} sumar={sumar} restar={restar} cant={cant} mostrarMensaje={mostrarMensaje} />
+            <ItemDetail title={producto_detalle.title} description={producto_detalle.description} price={producto_detalle.price} pictureUrl={producto_detalle.pictureUrl } categoria_id={producto_detalle.categoria_id} cant={cant} />
+            <ItemCount onAdd={onAdd} sumar={sumar} restar={restar} cant={cant} />
+
         </>
     );
 }
