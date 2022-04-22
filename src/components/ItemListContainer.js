@@ -1,29 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import ItemCount from './ItemCount.js';
 import ItemList from "./ItemList";
 import { useParams } from 'react-router-dom'
 
-const ItemListContainer = ({ tienda, onAdd }) => {
+const ItemListContainer = ({}) => {
 
-    let [cant, setCant] = useState(1);
     const urlParams = useParams();
 
-    const stock = 5;
-
-    const restar = () => {
-        if ( cant > 1 ){
-            setCant(--cant);
-        }
-    }
-
-    const sumar = () => {
-        if ( cant < stock ){
-            setCant(++cant);
-        }
-    }
-
     const [productos, setProductos] = useState([]);
-    /* const [categorias, setCategorias] = useState([]); */
 
     useEffect(() => {
 
@@ -46,18 +29,6 @@ const ItemListContainer = ({ tienda, onAdd }) => {
 
         });
 
-        /*const array_categorias = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve([
-                    { id: 1, nombre: "Informatica" },
-                    { id: 2, nombre: "Telefonia" },
-                    { id: 3, nombre: "Deportes" }
-                ])
-
-            }, 2000)
-
-        }) */
-
         array
             .then((respuesta) => {
                 setProductos(respuesta
@@ -70,26 +41,18 @@ const ItemListContainer = ({ tienda, onAdd }) => {
                 }));
             })
 
-        /*array_categorias
-            .then((respuesta2) => {
-                setCategorias(respuesta2);
-            }) */
-
     }, [urlParams])
-
 
 
     return (
 
-        <div>
+        <>
             <br />
-            <ItemList productos={productos}  /* categorias={categorias} *//>
+            <ItemList productos={productos} />
             <br />
             <hr style={{ 'width': '85%' }}/>
             <br />
-            {/* <ItemCount onAdd={onAdd} sumar={sumar} restar={restar} cant={cant}  /> */}
-
-        </div>
+        </>
     );
 }
 export default ItemListContainer;

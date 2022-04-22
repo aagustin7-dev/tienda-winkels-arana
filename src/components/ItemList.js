@@ -2,15 +2,11 @@ import React from 'react';
 import Item from "./Item";
 import {Grid} from "@mui/material";
 
-const ItemList = ({ productos, categorias }) => {
+const ItemList = ({ productos }) => {
 
     return (
 
         <Grid container>
-
-            {/* {categorias.map(item =>
-                <Categorias key={item.id} id={item.id} nombre={item.nombre} />
-            )} */}
 
             <hr style={{ 'width': '100%' }}/>
 

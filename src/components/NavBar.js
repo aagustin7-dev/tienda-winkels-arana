@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -19,6 +19,7 @@ import Categorias from "./Categorias";
 import Item from "./Item";
 
 
+
      const pages = [
         { titulo:'Home', url:'/home' },
         { titulo:'Categorias', url:'' },
@@ -27,7 +28,7 @@ import Item from "./Item";
 
     const settings = ['Perfil', 'Cerrar Sesión'];
 
-    const NavBar = ({ stockCarro }) => {
+    const NavBar = ({}) => {
 
         const [anchorElNav, setAnchorElNav] = useState(null);
         const [anchorElUser, setAnchorElUser] = useState(null);
@@ -56,7 +57,6 @@ import Item from "./Item";
             { id: 2, nombre: 'telefonia' },
             { id: 3, nombre: 'deportes' }
         ];
-
 
         return (
             <AppBar position="static" style={{background: '#2E3B55'}}>
@@ -120,7 +120,7 @@ import Item from "./Item";
                             </Link>
                             <Box></Box>
                             <Box></Box>
-                            <CartWidget stockCarro={stockCarro} />
+                            <CartWidget />
                             <Box></Box>
                             <Box></Box>
                             <Box></Box>
@@ -139,7 +139,7 @@ import Item from "./Item";
                                      <Categorias key={page.id} id={page.id} nombre={page.nombre} />
                                  </>
                             ))}
-                            <CartWidget stockCarro={stockCarro} />
+                            <CartWidget />
                         </Box>
 
                         <Box sx={{flexGrow: 0}}>

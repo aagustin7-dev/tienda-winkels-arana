@@ -1,22 +1,27 @@
 import React, {useEffect, useState} from 'react';
 import ItemCount from './ItemCount.js';
 import ItemDetail from "./ItemDetail.js";
+import {Link} from "react-router-dom";
+import Button from "@mui/material/Button";
 
-const ItemDetailContainer = ({ onAdd }) => {
+const ItemDetailContainer = ({}) => {
 
-    let [cant, setCant] = useState(1);
+    const [addedToCart, setAddedToCart] = useState(false);
 
+    //contador
+
+    let [cantidadProducto, setcantidadProducto] = useState(1);
     const stock = 5;
 
     const restar = () => {
-        if ( cant > 1 ){
-            setCant(--cant);
+        if ( cantidadProducto > 1 ){
+            setcantidadProducto(--cantidadProducto);
         }
     }
 
     const sumar = () => {
-        if ( cant < stock ){
-            setCant(++cant);
+        if ( cantidadProducto < stock ){
+            setcantidadProducto(++cantidadProducto);
         }
     }
 
@@ -31,8 +36,13 @@ const ItemDetailContainer = ({ onAdd }) => {
     return (
 
         <>
-            <ItemDetail title={producto_detalle.title} description={producto_detalle.description} price={producto_detalle.price} pictureUrl={producto_detalle.pictureUrl } categoria_id={producto_detalle.categoria_id} cant={cant} />
-            <ItemCount onAdd={onAdd} sumar={sumar} restar={restar} cant={cant} />
+            <ItemDetail id={producto_detalle.id} title={producto_detalle.title} description={producto_detalle.description} price={producto_detalle.price} pictureUrl={producto_detalle.pictureUrl } categoria_id={producto_detalle.categoria_id} />
+            {!addedToCart && <ItemCount setAddedToCart={setAddedToCart} id={producto_detalle.id} title={producto_detalle.title} description={producto_detalle.description} price={producto_detalle.price} pictureurl={producto_detalle.pictureUrl } categoria_id={producto_detalle.categoria_id} sumar={sumar} restar={restar} cantidadProducto={cantidadProducto} /> }
+            {addedToCart && <p>
+                <Link to={"/cart"} style={{ textDecoration: 'none', color: 'white' }}>
+                    <Button color="success" variant="contained">Finalizar Compra</Button>
+                </Link>
+            </p>}
 
         </>
     );
