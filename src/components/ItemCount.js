@@ -3,9 +3,24 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import {CartContext} from "./CartContextProvider";
 
-const ItemCount = ({ id, title, description, price, pictureurl, restar, sumar, cantidadProducto, setAddedToCart }) => {
-
+const ItemCount = ({ product, setAddedToCart }) => {
+    const [cantidadProducto, setcantidadProducto] = useState(1);
+    const {id, title, description, price, pictureurl} = product;
     let { cart, addToCart } = useContext(CartContext);
+
+    const stock = 5; 
+
+    const restar = () => {
+        if ( cantidadProducto > 1 ){
+            setcantidadProducto(cantidadProducto - 1);
+        }
+    }
+
+    const sumar = () => {
+        if ( cantidadProducto < stock ){
+            setcantidadProducto(cantidadProducto + 1);
+        }
+    }
 
     return(
 
@@ -17,7 +32,7 @@ const ItemCount = ({ id, title, description, price, pictureurl, restar, sumar, c
             </Box>
             <br />
             <Box sx={{ display:"flex", flexWrap:"wrap", justifyContent:"space-evenly", mx: "auto", width: 300 }} >
-                <Button onClick={ () => {addToCart(id, title, description, price, pictureurl, cantidadProducto); setAddedToCart(true)} } variant="contained">Agregar al carro</Button>
+                <Button onClick={ () => {addToCart(product, cantidadProducto); setAddedToCart(true)} } variant="contained">Agregar al carro</Button>
             </Box>
             <br/>
         </>

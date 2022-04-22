@@ -16,9 +16,6 @@ import imgPerfil from "../assets/images/img_perfil.jpeg";
 import CartWidget from '../components/CartWidget.js';
 import {Link} from "react-router-dom";
 import Categorias from "./Categorias";
-import Item from "./Item";
-
-
 
      const pages = [
         { titulo:'Home', url:'/home' },
@@ -49,7 +46,6 @@ import Item from "./Item";
         };
 
         const handleRedirect = (url) => {
-            console.log(url);
         }
 
         const categorias = [

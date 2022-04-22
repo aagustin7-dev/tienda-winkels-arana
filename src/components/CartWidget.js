@@ -15,36 +15,21 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const CartWidget = () => {
-
+    const [cantidad, setCantidad] = useState(0);
     let { cart } = useContext(CartContext);
-    let cantProduct = 0;
-    //let result = 0;
+    
 
-
-    {/* const cantidadProducto = (item) => {
-        return item.cantidadProducto;
-    }
-
-    const sum = (prev, next) => {
-        return prev + next;
-    } */}
-
-
-    if (cart.length !== 0){
-        cantProduct = cart.map(function (item, index, array){
-            return item.cantidadProducto;
-        });
-    }
 
     useEffect(() => {
-    }, [cantProduct]);
-
-    //console.log(cantProduct);
+        let suma = 0;
+        cart.forEach((item)=>suma=suma+item.cantidadProducto);
+        setCantidad(suma);
+    }, [cart]);
 
     return (
 
         <IconButton aria-label="cart">
-            <StyledBadge badgeContent={cantProduct} showZero color="primary" >
+            <StyledBadge badgeContent={cantidad} showZero color="primary" >
                 <ShoppingCartIcon sx={{ p: 0, color: "white", fontSize: 30 }}/>
             </StyledBadge>
         </IconButton>

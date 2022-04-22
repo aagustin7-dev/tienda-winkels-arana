@@ -6,8 +6,6 @@ import { useParams } from 'react-router-dom'
 
 const Item = ({ id, title, description, price, pictureUrl, categoria_id }) => {
 
-    const urlParams = useParams();
-
     return(
         <>
             <Grid item xs={12} md={4} >
@@ -25,7 +23,7 @@ const Item = ({ id, title, description, price, pictureUrl, categoria_id }) => {
                     <p style={{textTransform: 'capitalize',
                         fontWeight: 'bold',
                         fontFamily: 'default' }}>{price}</p>
-                    <Link to={"/" + ( urlParams.categoryName ? urlParams.categoryName : "todas" ) + "/" + categoria_id + "/" + title + "/" + id} style={{ textDecoration: 'none', color: 'white' }}>
+                    <Link to={`/item/${id}`} style={{ textDecoration: 'none', color: 'white' }}>
                         <Button variant="outlined" size="small">Ver detalle</Button>
                     </Link>
                     <div style={{ fontSize: 'medium', backgroundColor: 'green', borderRadius: '10px', width: '25%', marginLeft: '70%' }}>Stock Disponible</div>

@@ -5,30 +5,20 @@ export const CartContext = createContext();
 const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
-    const addToCart = (id, title, description, price, pictureurl, cantidadProducto) => {
+    const addToCart = (product, cantidad) => {
 
-        let cartTemp = cart;
+        const cartTemp = [...cart];
+        
+        const indexProducto = cart.findIndex((cartItem) => cartItem.id === product.id);
 
-        const indexProducto = cart.findIndex((cartItem) => cartItem.id === id);
         if (indexProducto !== -1) {
             const newCart = [...cart];
-            newCart[indexProducto].cantidadProducto = cantidadProducto;
+            newCart[indexProducto].cantidadProducto = newCart[indexProducto].cantidadProducto  + cantidad;
             setCart(newCart);
         } else {
-
-            let productoAinsertar = {
-                id:id,
-                title:title,
-                description:description,
-                price:price,
-                pictureurl:pictureurl,
-                cantidadProducto:cantidadProducto
-            };
-            cartTemp.push(productoAinsertar);
+            cartTemp.push({...product, cantidadProducto: cantidad});
             setCart(cartTemp);
         }
-
-        //console.log(cart);
     };
 
     const removeFromCart = (id) => {

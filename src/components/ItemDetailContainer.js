@@ -1,43 +1,37 @@
 import React, {useEffect, useState} from 'react';
 import ItemCount from './ItemCount.js';
 import ItemDetail from "./ItemDetail.js";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Button from "@mui/material/Button";
+import { mockProducts } from './ItemListContainer';
 
-const ItemDetailContainer = ({}) => {
-
+const ItemDetailContainer = () => {
+    const [product, setProduct] = useState({});
     const [addedToCart, setAddedToCart] = useState(false);
 
-    //contador
+    const {id} = useParams();
 
-    let [cantidadProducto, setcantidadProducto] = useState(1);
-    const stock = 5;
+    useEffect(()=>{
+        
+        const array = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(mockProducts)
 
-    const restar = () => {
-        if ( cantidadProducto > 1 ){
-            setcantidadProducto(--cantidadProducto);
-        }
-    }
+            }, 2000)
 
-    const sumar = () => {
-        if ( cantidadProducto < stock ){
-            setcantidadProducto(++cantidadProducto);
-        }
-    }
+        });
 
-    const producto_detalle = {
-        id: 1,
-        title: "Product Name",
-        description: "Product Description",
-        price: "Product Price",
-        pictureUrl: "https://static1.squarespace.com/static/5c3f14108ab722debd73a9f5/t/5de2fc4936172f0b2fbc3806/1575156810265/products_brochure_design-min.png",
-        categoria_id: 1}
+        array.then((respuesta) => {
+                const newProduct = respuesta.find(product => product.id === parseInt(id));
+                setProduct(newProduct);
+    })},[id])
 
     return (
 
         <>
-            <ItemDetail id={producto_detalle.id} title={producto_detalle.title} description={producto_detalle.description} price={producto_detalle.price} pictureUrl={producto_detalle.pictureUrl } categoria_id={producto_detalle.categoria_id} />
-            {!addedToCart && <ItemCount setAddedToCart={setAddedToCart} id={producto_detalle.id} title={producto_detalle.title} description={producto_detalle.description} price={producto_detalle.price} pictureurl={producto_detalle.pictureUrl } categoria_id={producto_detalle.categoria_id} sumar={sumar} restar={restar} cantidadProducto={cantidadProducto} /> }
+            {product?.id && <ItemDetail product={product} />}
+            <br/>
+            {!addedToCart && product?.id && <ItemCount setAddedToCart={setAddedToCart} product={product} /> }
             {addedToCart && <p>
                 <Link to={"/cart"} style={{ textDecoration: 'none', color: 'white' }}>
                     <Button color="success" variant="contained">Finalizar Compra</Button>
