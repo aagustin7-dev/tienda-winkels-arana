@@ -1,12 +1,12 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import {CartContext} from "./CartContextProvider";
 
 const ItemCount = ({ product, setAddedToCart }) => {
-    const [cantidadProducto, setcantidadProducto] = useState(1);
     const {id, title, description, price, pictureurl} = product;
     let { cart, addToCart } = useContext(CartContext);
+    const [cantidadProducto, setcantidadProducto] = useState(1);
 
     const stock = 5; 
 
@@ -21,6 +21,7 @@ const ItemCount = ({ product, setAddedToCart }) => {
             setcantidadProducto(cantidadProducto + 1);
         }
     }
+
 
     return(
 

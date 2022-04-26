@@ -22,7 +22,7 @@ const Item = ({ id, title, description, price, pictureUrl, categoria_id }) => {
                         fontSize: 'medium' }}>{description}</p>
                     <p style={{textTransform: 'capitalize',
                         fontWeight: 'bold',
-                        fontFamily: 'default' }}>{price}</p>
+                        fontFamily: 'default' }}>${(price).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}</p>
                     <Link to={`/item/${id}`} style={{ textDecoration: 'none', color: 'white' }}>
                         <Button variant="outlined" size="small">Ver detalle</Button>
                     </Link>

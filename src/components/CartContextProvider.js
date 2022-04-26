@@ -21,6 +21,24 @@ const CartContextProvider = ({ children }) => {
         }
     };
 
+    const getTotalProducts = () => {
+
+        const total = {
+            price: 0,
+            cantidadProducto: 0
+        }
+
+        cart.forEach(product => {
+
+            total.price = total.price + product.cantidadProducto * product.price
+            total.cantidadProducto = total.cantidadProducto + product.cantidadProducto
+
+        })
+
+        return total;
+    }
+
+
     const removeFromCart = (id) => {
         // elimino del carrito el elemento que sea igual a mi id
         // filter => te va a devolver un array que cumpla con lo que vos pases en la condición de la función callback
@@ -31,7 +49,7 @@ const CartContextProvider = ({ children }) => {
     const cleanCart = () => setCart([]);
 
     return (
-        <CartContext.Provider value={{ cart, setCart, addToCart }}>
+        <CartContext.Provider value={{ cart, setCart, addToCart, getTotalProducts, removeFromCart }}>
             {children}
         </CartContext.Provider>
     );
