@@ -49,7 +49,7 @@ const CartContextProvider = ({ children }) => {
     const cleanCart = () => setCart([]);
 
     return (
-        <CartContext.Provider value={{ cart, setCart, addToCart, getTotalProducts, removeFromCart }}>
+        <CartContext.Provider value={{ cart, setCart, addToCart, getTotalProducts, removeFromCart, cleanCart }}>
             {children}
         </CartContext.Provider>
     );

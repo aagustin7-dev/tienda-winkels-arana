@@ -2,7 +2,6 @@ import React from 'react';
 import Button from "@mui/material/Button";
 import {Grid} from "@mui/material";
 import {Link} from "react-router-dom";
-import { useParams } from 'react-router-dom'
 
 const Item = ({ id, title, description, price, pictureUrl, categoria_id }) => {
 

@@ -12,7 +12,7 @@ import Box from "@mui/material/Box";
 
 const Cart = () => {
 
-    let { cart, getTotalProducts, removeFromCart } = useContext(CartContext);
+    let { cart, getTotalProducts, removeFromCart, cleanCart } = useContext(CartContext);
 
     const mostrarMensaje = () => {
         alert("Compra efectuada");
@@ -62,7 +62,7 @@ const Cart = () => {
                 {getTotalProducts().cantidadProducto > 0 && <p><b>Monto Total:</b> ${getTotalProducts().price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}
                     <Box>
                         <br/>
-                        <Button onClick={ () => {mostrarMensaje()}} variant="contained">Comprar</Button>
+                        <Button onClick={ () => {mostrarMensaje(); cleanCart()}} variant="contained">Comprar</Button>
                         <p>
                             <Link to={"/home"} style={{ textDecoration: 'none', color: 'white' }}>
                                 <Button variant="contained">Ver más productos</Button>

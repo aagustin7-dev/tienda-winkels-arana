@@ -3,7 +3,8 @@ import ItemCount from './ItemCount.js';
 import ItemDetail from "./ItemDetail.js";
 import {Link, useParams} from "react-router-dom";
 import Button from "@mui/material/Button";
-import { mockProducts } from './ItemListContainer';
+import {collection, getDocs, getFirestore} from "firebase/firestore";
+//import { mockProducts } from './ItemListContainer';
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
@@ -12,19 +13,19 @@ const ItemDetailContainer = () => {
     const {id} = useParams();
 
     useEffect(()=>{
-        
-        const array = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(mockProducts)
 
-            }, 2000)
+        const db = getFirestore();
+        const productosRef = collection(db, 'productos');
 
-        });
-
-        array.then((respuesta) => {
-                const newProduct = respuesta.find(product => product.id === parseInt(id));
+        getDocs(productosRef)
+            .then((res) => {
+                let allProducts = res.docs.map((item) => ({ id: Number(item.id), ...item.data() }));
+                const newProduct = allProducts.find(product => product.id === parseInt(id));
                 setProduct(newProduct);
-    })},[id])
+            })
+
+    },[id])
+
 
     return (
 
