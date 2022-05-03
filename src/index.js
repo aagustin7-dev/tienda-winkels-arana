@@ -6,13 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCnbI-HYb50s1D51X6NpBmNaWjemBHAO9o",
-    authDomain: "winkels-b4305.firebaseapp.com",
-    projectId: "winkels-b4305",
-    storageBucket: "winkels-b4305.appspot.com",
-    messagingSenderId: "569926323162",
-    appId: "1:569926323162:web:5f18c6153e201b40204ee3",
-    measurementId: "G-YP3ZCK4KGL"
+    apiKey: "AIzaSyCbkN8fGTrgaJtxTQTx21sZP0K-Mo53vYY",
+    authDomain: "testing-app-2bb14.firebaseapp.com",
+    projectId: "testing-app-2bb14",
+    storageBucket: "testing-app-2bb14.appspot.com",
+    messagingSenderId: "27292219187",
+    appId: "1:27292219187:web:8739059cd70c3c7a897046"
 };
 
 initializeApp(firebaseConfig);

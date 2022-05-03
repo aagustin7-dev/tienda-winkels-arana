@@ -42,7 +42,6 @@ const ItemListContainer = ({}) => {
     }, [urlParams]);
 
     useEffect(() => {
-        console.log(productos);
     },[productos]);
 
     return (
@@ -51,7 +50,7 @@ const ItemListContainer = ({}) => {
             <br />
             <ItemList productos={productos} />
             <br />
-            <hr style={{ 'width': '85%' }}/>
+            <hr style={{ 'width': '100%' }}/>
             <br />
         </>
     );
