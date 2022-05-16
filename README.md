@@ -56,9 +56,8 @@ el código. Por otra parte, podríamos también habernos basado en el [Github Fl
 ## Ejemplo de Compra en Winkels
 
 
-## Autor
 
-https://c.tenor.com/Gyr7Or2o5ycAAAAC/technology-path.gif
+## Autor
 
 Este proyecto fue realizado por Agustin Arana.
 
