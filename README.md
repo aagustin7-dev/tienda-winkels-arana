@@ -43,9 +43,9 @@ poder inicializar mediante la ejecución del comando `npm start`. Luego, se podr
 
 La aplicación cuenta con el uso incorporado de las siguientes librerías:
 
-[Material UI](https://mui.com/)
-[React Router DOM](https://www.npmjs.com/package/react-router-dom)
-[Firebase](https://console.firebase.google.com/)
+- [Material UI](https://mui.com/)
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom)
+- [Firebase](https://console.firebase.google.com/)
 
 ## Lineamientos de Git
 
