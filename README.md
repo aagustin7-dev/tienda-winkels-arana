@@ -43,9 +43,9 @@ poder inicializar mediante la ejecución del comando `npm start`. Luego, se podr
 
 La aplicación cuenta con el uso incorporado de las siguientes librerías:
 
-- [Material UI](https://mui.com/)
-- [React Router DOM](https://www.npmjs.com/package/react-router-dom)
-- [Firebase](https://console.firebase.google.com/)
+- [Material UI](https://mui.com/) -> Con fines de darle estilos y colores a la tienda
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom) -> Con fines de poder realizar el ruteo necesario dentro de la aplicación
+- [Firebase](https://console.firebase.google.com/) -> Con fines de emular una base de datos
 
 ## Lineamientos de Git
 
@@ -55,7 +55,7 @@ el código. Por otra parte, podríamos también habernos basado en el [Github Fl
 
 ## Ejemplo de Compra en Winkels
 
-
+https://s27.aconvert.com/convert/p3r68-cdx67/msgqz-z4iwa.gif
 
 ## Autor
 
