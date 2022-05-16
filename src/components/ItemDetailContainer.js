@@ -4,7 +4,6 @@ import ItemDetail from "./ItemDetail.js";
 import {Link, useParams} from "react-router-dom";
 import Button from "@mui/material/Button";
 import {collection, getDocs, getFirestore} from "firebase/firestore";
-//import { mockProducts } from './ItemListContainer';
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});

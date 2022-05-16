@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Tienda Winkels - Ecommerce
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+En el siguiente documento cubrimos los siguientes temas
 
-## Available Scripts
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Instalación](#instalacion)
+- [Ejecución](#ejecucion)
+- [Lineamientos de Git](#lineamientos-de-git)
+- [Información de Autor](#autor)
 
-In the project directory, you can run:
 
-### `npm start`
+## Estructura del proyecto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Este proyecto es una _tienda online_ la cual simula un ecommerce con fines de adquirir diferentes productos. A su vez,
+cuenta con un directorio único donde se alojan todos los componentes que componen la aplicación.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Dentro de la carpeta `/src` tenemos sub-carpetas agrupando distintos _dirs_ según tipo:
 
-### `npm test`
+- **assets** agrupa todo lo relacionado a _css_ e _images_
+- **components** contiene todos los _componentes_ que hacen posible el funcionamiento de la tienda online.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+> Las dependencias/librerías instaladas se podrán visualizar dentro del archivo `package.json` del proyecto.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Instalación
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para instalar cualquier dependencia o librería, se deberá correr el siguiente comando (posicionado sobre la carpeta raíz del proyecto)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm
+```
 
-### `npm run eject`
+**IMPORTANTE: Durante toda la creación del proyecto, hemos utilizado npm**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Ejecución
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Para ejecutar el software y emular la aplicación de Winkels, primero tendremos que estar situados en la carpeta raíz del proyecto para luego
+poder inicializar mediante la ejecución del comando `npm start`. Luego, se podrá apreciar en el navegador. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Lineamientos de Git
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Para construir la tienda, esta aplicación utilizó la interacción con Github mediante sus comandos básicos para poder refrescar y actualizar
+el código. Por otra parte, podríamos también habernos basado en el [Github Flow](https://guides.github.com/introduction/flow/) y usar `Squash and merge` para hacer el _merge_ de cada _pull request_.
+(En caso de haber utilizado PRs para pushear el código y no tocar master hasta el final del proyecto, pero no fue necesario)
 
-## Learn More
+## Autor
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Este proyecto fue realizado por Agustin Arana.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

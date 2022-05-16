@@ -23,7 +23,7 @@ const Cart = () => {
                             return (
                                 <Grid item xs={12}>
                                     <hr style={{'width': '50%'}}/>
-                                        <img style={{'width': '150px', 'height': '150px', 'border-radius': '10px'}} src={item.pictureUrl} />
+                                        <img style={{'width': '150px', 'height': '150px', 'borderRadius': '10px'}} src={item.pictureUrl} />
                                         <p style={{ margin:4, fontFamily: 'fantasy', fontSize: '30px' }}>{item.title}</p>
                                         <p style={{ margin:10, fontFamily: 'Papyrus', fontSize: '25px' }}>
                                             Cantidad: <TextField style={{ 'width': '50px' }}

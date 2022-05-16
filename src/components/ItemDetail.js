@@ -11,11 +11,11 @@ const ItemDetail = ({product}) => {
             <Grid item xs={12}>
                 <br/>
                 <hr style={{ 'width': '85%' }}/>
-                <div style={{ 'border-left': '1px solid hsla(200, 10%, 50%,100)'}} >
+                <div style={{ 'borderLeft': '1px solid hsla(200, 10%, 50%,100)'}} >
                     <p style={{textTransform: 'uppercase', fontWeight: 'bold', fontFamily: 'default', fontSize: 'large', letterSpacing: 1 }} >
                         {title}
                     </p>
-                    <img style={{'width': '150px', 'height': '150px', 'border-radius': '10px'}} src={pictureUrl}/>
+                    <img style={{'width': '150px', 'height': '150px', 'borderRadius': '10px'}} src={pictureUrl}/>
                     <p style={{textTransform: 'full-size-kana',
                         fontWeight: 'bold',
                         fontFamily: 'default',

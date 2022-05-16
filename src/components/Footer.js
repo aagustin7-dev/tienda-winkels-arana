@@ -1,6 +1,5 @@
 import React from 'react';
 import Container from '@mui/material/Container';
-import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 
 const Footer = () => {

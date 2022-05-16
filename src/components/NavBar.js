@@ -7,21 +7,12 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logoWinkels from "../assets/images/logo-winkels.png";
-import imgPerfil from "../assets/images/img_perfil.jpeg";
 import CartWidget from '../components/CartWidget.js';
 import {Link} from "react-router-dom";
 import Categorias from "./Categorias";
 
-     const pages = [
-        { titulo:'Home', url:'/home' },
-        { titulo:'Categorias', url:'' },
-        { titulo:'Contacto', url:'' }
-    ];
 
     const settings = ['Perfil', 'Cerrar Sesión'];
 
@@ -45,8 +36,6 @@ import Categorias from "./Categorias";
             setAnchorElUser(null);
         };
 
-        const handleRedirect = (url) => {
-        }
 
         const categorias = [
             { id: 1, nombre: 'informatica' },
@@ -63,7 +52,7 @@ import Categorias from "./Categorias";
                             sx={{mr: 2, display: {xs: 'none', md: 'flex'}}}
                         >
                             <Link to="/home">
-                                <img style={{'width': '180px', 'height': '70px', 'border-radius': '10px'}} src={logoWinkels}
+                                <img style={{'width': '180px', 'height': '70px', 'borderRadius': '10px'}} src={logoWinkels}
                                  alt="Coder House React"/>
                             </Link>
                         </Typography>
@@ -111,7 +100,7 @@ import Categorias from "./Categorias";
                             sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}, justifyContent: 'space-evenly'}}
                         >
                             <Link to="/home">
-                                <img style={{'width': '150px', 'height': '50px', 'border-radius': '10px'}} src={logoWinkels}
+                                <img style={{'width': '150px', 'height': '50px', 'borderRadius': '10px'}} src={logoWinkels}
                                      alt="Coder House React"/>
                             </Link>
                             <Box></Box>
@@ -139,11 +128,6 @@ import Categorias from "./Categorias";
                         </Box>
 
                         <Box sx={{flexGrow: 0}}>
-                            {/*<Tooltip title="Settings">
-                                <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
-                                    <Avatar alt="Conf" src={imgPerfil} style={{'width': '50px', 'height': '50px'}}/>
-                                </IconButton>
-                            </Tooltip> */}
                             <Menu
                                 sx={{mt: '45px'}}
                                 id="menu-appbar"
