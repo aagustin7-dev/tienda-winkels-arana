@@ -55,7 +55,7 @@ el código. Por otra parte, podríamos también habernos basado en el [Github Fl
 
 ## Ejemplo de Compra en Winkels
 
-[image](https://s27.aconvert.com/convert/p3r68-cdx67/msgqz-z4iwa.gif)
+![Alt Text](https://github.com/aagustin7-dev/tienda-winkels-arana/blob/master/winkels-agustin-arana.gif)
 
 ## Autor
 
