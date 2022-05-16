@@ -5,7 +5,9 @@ En el siguiente documento cubrimos los siguientes temas
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Instalación](#instalacion)
 - [Ejecución](#ejecucion)
+- [Dependencias Agregadas](#dependencias-utilizadas)
 - [Lineamientos de Git](#lineamientos-de-git)
+- [Ejemplo de Compra](#gif-de-compra)
 - [Información de Autor](#autor)
 
 
@@ -37,13 +39,26 @@ npm
 Para ejecutar el software y emular la aplicación de Winkels, primero tendremos que estar situados en la carpeta raíz del proyecto para luego
 poder inicializar mediante la ejecución del comando `npm start`. Luego, se podrá apreciar en el navegador. 
 
+## Dependencias Agregadas
+
+La aplicación cuenta con el uso incorporado de las siguientes librerías:
+
+[Material UI](https://mui.com/)
+[React Router DOM](https://www.npmjs.com/package/react-router-dom)
+[Firebase](https://console.firebase.google.com/)
+
 ## Lineamientos de Git
 
 Para construir la tienda, esta aplicación utilizó la interacción con Github mediante sus comandos básicos para poder refrescar y actualizar
 el código. Por otra parte, podríamos también habernos basado en el [Github Flow](https://guides.github.com/introduction/flow/) y usar `Squash and merge` para hacer el _merge_ de cada _pull request_.
 (En caso de haber utilizado PRs para pushear el código y no tocar master hasta el final del proyecto, pero no fue necesario)
 
+## Ejemplo de Compra en Winkels
+
+
 ## Autor
+
+https://c.tenor.com/Gyr7Or2o5ycAAAAC/technology-path.gif
 
 Este proyecto fue realizado por Agustin Arana.
 
